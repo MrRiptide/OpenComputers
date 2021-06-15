@@ -1,5 +1,5 @@
 local robot = require("robot")
 
-robot.turnLeft()
-robot.turnLeft()
-robot.turnLeft()
+robot.swing(3)
+robot.swing(3)
+robot.swing(3)
