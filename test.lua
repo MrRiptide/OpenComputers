@@ -1,5 +1,6 @@
 local robot = require("robot")
 
-robot.swing(3)
-robot.swing(3)
-robot.swing(3)
+while true do
+  robot.place()
+  robot.swing()
+end
