@@ -20,9 +20,8 @@ function chargeRedstone()
   robot.transferTo(1)
   robot.select(14)
   robot.transferTo(2,1)
+  robot.select(15)
   component.crafting.craft()
-  robot.select(16)
-  robot.transferTo(15)
 end
 
 function chargeGlowstone()
