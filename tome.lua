@@ -76,7 +76,7 @@ function processLoop()
         robot.select(4)
         robot.transferTo(2,1)
         component.crafting.craft()
-        nether_stars += 1
+        nether_stars = nether_stars + 1
         if nether_stars > 3 then
           component.inventory_controller.dropIntoSlot(sides.up, 1, nether_stars - 3)
         end
@@ -89,7 +89,7 @@ function processLoop()
         robot.select(8)
         robot.transferTo(2,1)
         component.crafting.craft()
-        nether_stars += 1
+        dirt = dirt + 32
         if dirt > 10 then
           component.inventory_controller.dropIntoSlot(sides.up, 2, dirt - 10)
         end
