@@ -39,11 +39,11 @@ end
 function charge()
   local glowstone = component.inventory_controller.getStackInInternalSlot(13).size
   local redstone = component.inventory_controller.getStackInInternalSlot(14).size
-  while redstone > 0 and charge_value < 900 do
+  while redstone > 5 and charge_value < 900 do
     chargeRedstone()
     redstone = redstone - 1
   end
-  while glowstone > 0 and charge_value < 900 do
+  while glowstone > 5 and charge_value < 900 do
     chargeGlowstone()
     glowstone = glowstone - 1
   end
