@@ -54,14 +54,14 @@ function refill()
   local glowstone = component.inventory_controller.getStackInInternalSlot(13).size
   local redstone = component.inventory_controller.getStackInInternalSlot(14).size
   if glowstone < 5 then
-    local extGlowstone = component.inventory_controller.getStackInSlot(sides.front,2).size
+    local external_glowstone = component.inventory_controller.getStackInSlot(sides.front,2).size
     robot.select(13)
-    component.inventory_controller.suckFromSlot(sides.front, 2, math.max(0,extGlowstone - 1 - robot.count()))
+    component.inventory_controller.suckFromSlot(sides.front, 2, math.max(0,external_glowstone - 1 - robot.count()))
   end
   if redstone < 5 then 
-    local extRedstone = component.inventory_controller.getStackInSlot(sides.front,1).size
+    local external_redstone = component.inventory_controller.getStackInSlot(sides.front,1).size
     robot.select(14)
-    component.inventory_controller.suckFromSlot(sides.front, 1, math.max(0,extRedstone - 1 - robot.count()))
+    component.inventory_controller.suckFromSlot(sides.front, 1, math.max(0,external_redstone - 1 - robot.count()))
   end
 end
 
