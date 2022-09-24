@@ -69,7 +69,7 @@ function processLoop()
   while (true) do
     if charge > 500 then
       -- if less than 5 nether stars
-      local nether_stars = component.inventory_controller.getStackInInternalSlot(4).count
+      local nether_stars = component.inventory_controller.getStackInInternalSlot(4).size
       if nether_stars < 5 then
         robot.select(15)
         robot.transferTo(1)
@@ -82,7 +82,7 @@ function processLoop()
         end
       end
       -- if less than 20 dirt
-      local dirt = component.inventory_controller.getStackInInternalSlot(8).count
+      local dirt = component.inventory_controller.getStackInInternalSlot(8).size
       if dirt < 20 then
         robot.select(15)
         robot.transferTo(1)
