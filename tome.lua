@@ -11,7 +11,7 @@ local sides = require("sides")
 -- 16 | crafting output
 
 function getCharge()
-  return component.inventory_controller.getStackInInternalSlot(15).damage
+  return 1001 - component.inventory_controller.getStackInInternalSlot(15).damage
 end
 
 function chargeRedstone()
@@ -36,8 +36,8 @@ function chargeGlowstone()
 end
 
 function charge()
-  local glowstone = component.inventory_controller.getStackInInternalSlot(13)
-  local redstone = component.inventory_controller.getStackInInternalSlot(14)
+  local glowstone = component.inventory_controller.getStackInInternalSlot(13).size
+  local redstone = component.inventory_controller.getStackInInternalSlot(14).size
   if redstone > glowstone then
     if redstone > 0 then
       chargeRedstone()
@@ -50,8 +50,8 @@ function charge()
 end
 
 function refill()
-  local glowstone = component.inventory_controller.getStackInInternalSlot(13)
-  local redstone = component.inventory_controller.getStackInInternalSlot(14)
+  local glowstone = component.inventory_controller.getStackInInternalSlot(13).size
+  local redstone = component.inventory_controller.getStackInInternalSlot(14).size
   if glowstone < 64 then
     local extGlowstone = component.inventory_controller.getStackInSlot(sides.front,2).size
     robot.select(13)
