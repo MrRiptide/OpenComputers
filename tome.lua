@@ -78,9 +78,9 @@ function processLoop()
         component.crafting.craft()
         charge_value = charge_value - 256
         nether_stars = nether_stars + 1
-        if nether_stars > 3 then
-          component.inventory_controller.dropIntoSlot(sides.up, 1, nether_stars - 3)
-        end
+      end
+      if nether_stars > 3 then
+        component.inventory_controller.dropIntoSlot(sides.up, 1, nether_stars - 3)
       end
       -- if less than 20 dirt
       local dirt = component.inventory_controller.getStackInInternalSlot(8).size
@@ -92,9 +92,9 @@ function processLoop()
         component.crafting.craft()
         charge_value = charge_value - 4
         dirt = dirt + 32
-        if dirt > 10 then
-          component.inventory_controller.dropIntoSlot(sides.up, 2, dirt - 10)
-        end
+      end
+      if dirt > 10 then
+        component.inventory_controller.dropIntoSlot(sides.up, 2, dirt - 10)
       end
     else
       charge()
