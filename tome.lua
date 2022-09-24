@@ -37,6 +37,7 @@ function chargeGlowstone()
 end
 
 function charge()
+  print("Starting a recharging cycle, current charge is " .. charge_value)
   local glowstone = component.inventory_controller.getStackInInternalSlot(13).size
   local redstone = component.inventory_controller.getStackInInternalSlot(14).size
   while redstone > 5 and charge_value < 900 do
@@ -71,6 +72,7 @@ function processLoop()
       -- if less than 5 nether stars
       local nether_stars = component.inventory_controller.getStackInInternalSlot(4).size
       if nether_stars < 5 then
+        print("crafting a nether star")
         robot.select(15)
         robot.transferTo(1)
         robot.select(4)
@@ -80,11 +82,13 @@ function processLoop()
         nether_stars = nether_stars + 1
       end
       if nether_stars > 3 then
+        robot.select(4)
         component.inventory_controller.dropIntoSlot(sides.up, 1, nether_stars - 3)
       end
       -- if less than 20 dirt
       local dirt = component.inventory_controller.getStackInInternalSlot(8).size
       if dirt < 20 then
+        print("crafting dirt")
         robot.select(15)
         robot.transferTo(1)
         robot.select(8)
@@ -94,6 +98,7 @@ function processLoop()
         dirt = dirt + 32
       end
       if dirt > 10 then
+        robot.select(8)
         component.inventory_controller.dropIntoSlot(sides.up, 2, dirt - 10)
       end
     else
