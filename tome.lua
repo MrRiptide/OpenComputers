@@ -22,7 +22,7 @@ function chargeRedstone()
   robot.transferTo(2,1)
   robot.select(15)
   component.crafting.craft()
-  charge_value = charge_value + 1
+  charge_value = charge_value + 9
 end
 
 function chargeGlowstone()
@@ -33,7 +33,7 @@ function chargeGlowstone()
   robot.transferTo(2,1)
   robot.select(15)
   component.crafting.craft()
-  charge_value = charge_value + 1
+  charge_value = charge_value + 4
 end
 
 function charge()
