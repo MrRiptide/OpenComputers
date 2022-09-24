@@ -65,9 +65,8 @@ function refill()
 end
 
 function processLoop()
-  local charge = getCharge()
   while (true) do
-    if charge > 500 then
+    if getCharge() > 500 then
       -- if less than 5 nether stars
       local nether_stars = component.inventory_controller.getStackInInternalSlot(4).size
       if nether_stars < 5 then
