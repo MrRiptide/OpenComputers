@@ -22,6 +22,7 @@ function chargeRedstone()
   robot.transferTo(2,1)
   robot.select(15)
   component.crafting.craft()
+  charge_value = charge_value + 1
 end
 
 function chargeGlowstone()
@@ -32,19 +33,19 @@ function chargeGlowstone()
   robot.transferTo(2,1)
   robot.select(15)
   component.crafting.craft()
+  charge_value = charge_value + 1
 end
 
 function charge()
   local glowstone = component.inventory_controller.getStackInInternalSlot(13).size
   local redstone = component.inventory_controller.getStackInInternalSlot(14).size
-  if redstone > glowstone then
-    if redstone > 0 then
-      chargeRedstone()
-    end
-  else
-    if glowstone > 0 then
-      chargeGlowstone()
-    end
+  while redstone > 0 and charge_value < 900 do
+    chargeRedstone()
+    redstone = redstone - 1
+  end
+  while glowstone > 0 and charge_value < 900 do
+    chargeGlowstone()
+    glowstone = glowstone - 1
   end
 end
 
@@ -64,8 +65,9 @@ function refill()
 end
 
 function processLoop()
+  charge_value = getCharge()
   while (true) do
-    if getCharge() > 500 then
+    if charge_value > 500 then
       -- if less than 5 nether stars
       local nether_stars = component.inventory_controller.getStackInInternalSlot(4).size
       if nether_stars < 5 then
@@ -74,6 +76,7 @@ function processLoop()
         robot.select(4)
         robot.transferTo(2,1)
         component.crafting.craft()
+        charge_value = charge_value - 256
         nether_stars = nether_stars + 1
         if nether_stars > 3 then
           component.inventory_controller.dropIntoSlot(sides.up, 1, nether_stars - 3)
@@ -87,6 +90,7 @@ function processLoop()
         robot.select(8)
         robot.transferTo(2,1)
         component.crafting.craft()
+        charge_value = charge_value - 4
         dirt = dirt + 32
         if dirt > 10 then
           component.inventory_controller.dropIntoSlot(sides.up, 2, dirt - 10)
